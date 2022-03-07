@@ -4,6 +4,8 @@ import {Product} from "./models/product/Product";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Deal} from "./models/deal/Deal";
 import {DealService} from "./services/deal/deal.service";
+import {Order} from "./models/order/Order";
+import {OrderService} from "./services/order/order.service";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +17,16 @@ export class AppComponent implements OnInit {
 
   products?: Product[];
   deals?: Deal[];
+  orders?: Order[];
 
-  constructor(private productService: ProductService, private dealService: DealService) {
+  constructor(private productService: ProductService, private dealService: DealService,
+              private orderService: OrderService) {
   }
 
   ngOnInit() {
     this.getAllProducts();
     this.getAllDeals();
+    this.getAllOrders();
   }
 
   public getAllProducts(): void {
@@ -47,4 +52,18 @@ export class AppComponent implements OnInit {
       }
     )
   }
+
+  public getAllOrders(): void {
+    this.orderService.getAllOrders().subscribe(
+      (response: Order[]) => {
+        this.orders = response;
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
+
 }
