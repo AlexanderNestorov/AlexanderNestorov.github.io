@@ -1,10 +1,12 @@
-html {
-  background: url(assets/background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  background: rgb(185,74,35);
+  background: linear-gradient(90deg, rgba(185,74,35,1) 0%, rgba(246,178,112,1) 50%, rgba(185,74,35,1) 100%);
+}

@@ -1,4 +1,58 @@
-<div *ngFor="let product of products">
-  <h1>{{product.name}}</h1>
-</div>
+<div class="container">
+  <div class="mt-5 row align-items-center">
+    <div class="mb-2 col" *ngFor="let number of [1,2]">
+    <mat-card class="example-card" *ngIf="number == 1" >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title >Products</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngFor="let product of products">
+          {{product.name}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>ADD</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
 
+      <mat-card class="example-card" *ngIf="number == 2" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Discounts</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngFor="let deal of deals">
+            {{deal.name}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <mat-card class="col example-card" *ngFor="let number of [1,2,3]">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title *ngIf="number == 1">Basket</mat-card-title>
+        <mat-card-title *ngIf="number == 2">Total</mat-card-title>
+        <mat-card-title *ngIf="number == 3">Orders</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
